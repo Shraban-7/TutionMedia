@@ -1,0 +1,54 @@
+
+body {
+    height: 100vh;
+        }
+
+        .form-control {
+            line-height: 2;
+        }
+
+        .bg-custom {
+            /*background-color: #6C63FF;*/
+            /*height: 100vh;*/
+            background: #00c6ff;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+min-height: 100vh;
+            padding-bottom: 15px;
+        }
+img{
+   min-height: 100vh;
+}
+        .btn-custom {
+            background-color: #3e3d56;
+            color: #fff;
+        }
+
+        .btn-custom:hover {
+            background-color: #33313f;
+            color: #fff;
+        }
+
+        label {
+            color: #fff;
+        }
+small{
+    color: #fff;
+    display: none;
+}
+        a,
+        a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        a,
+        a:hover {
+            text-decoration: none;
+        }
+
+        @media(max-width: 932px) {
+            .display-none {
+                display: none !important;
+            }
+        }

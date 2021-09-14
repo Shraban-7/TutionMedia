@@ -1,0 +1,49 @@
+        body {
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            /*font-family: "Nunito Sans";*/
+        }
+
+        .form-control {
+            line-height: 2;
+        }
+
+        .bg-custom {
+            /*background-color: #6C63FF;*/
+            background: #00d2ff;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #3a7bd5, #00d2ff);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+min-height: 100vh;
+        }
+
+        .btn-custom {
+            background-color: #3e3d56;
+            color: #fff;
+        }
+
+        .btn-custom:hover {
+            background-color: #33313f;
+            color: #fff;
+        }
+
+        label {
+            color: #fff;
+        }
+
+        a,
+        a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        a,
+        a:hover {
+            text-decoration: none;
+        }
+
+        @media(max-width: 932px) {
+            .display-none {
+                display: none !important;
+            }
+        }

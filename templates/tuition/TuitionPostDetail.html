@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Detail
+{% endblock %}
+{% block content %}
+<div class="container ">
+<div class="card mt-5">
+    <div class="card-body">
+        <h6>Author : {{ object.fullname }} | Time : {{ object.created_at }}</h6>
+        <h4 class="mb-3">Need {{ object.medium }} Version Tutor For Class {{ object.class_other }} Student</h4>
+    <div class="row">
+        <div class="col-md-4 mb-2">
+            <p class="card-text text-muted"><i class="fas fa-puzzle-piece"></i> {{ object.preference_tuition_style }}</p>
+    <p class="card-text text-muted"><i class="fas fa-money-bill-wave"></i> {{ object.salary }}</p>
+            <p class="card-text text-muted"><i class="fas fa-university"></i> {{ object.school_college }}</p>
+<p class="card-text text-muted"><i class="fas fa-book"></i> {{ object.subjects }}</p>
+
+        </div>
+           <div class="col-md-4 mb-2">
+
+     <p class="card-text text-muted"><i class="fas fa-graduation-cap"></i> No of student : {{ object.student_quantity}}</p>
+               <p class="card-text text-muted"><i class="fas fa-venus-mars"></i> student gender : {{ object.student_gender}}</p>
+               <p class="card-text text-muted"><i class="fas fa-venus-mars"></i> teacher gender : {{ object.desire_tutor_gender}}</p>
+               <p class="card-text text-muted"><i class="fas fa-calendar-week"></i>  {{ object.day_per_week}}</p>
+</div>
+        <div class="col-md-4 mb-2">
+   <p class="card-text text-muted"><i class="fas fa-map-marker-alt"></i> {{ object.city}} ,{{ object.country }}</p>
+<p class="card-text text-muted"><i class="fas fa-map-marked-alt"></i> {{ object.address}}</p>
+        <p class="card-text text-muted"><i class="fas fa-phone"></i> {{ object.mobile}}</p>
+            <p class="card-text text-muted"><i class="far fa-envelope"></i> {{ object.email}}</p>
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
+{% block script %}
+<link rel="stylesheet" href="{% static 'css/tuitiondetails.css' %}">
+{% endblock %}

@@ -1,0 +1,68 @@
+.img-thumbnail{
+	height:100px;
+	width:100px;
+    border:0 !important;
+	/*border-color: #00c6ff !important;*/
+	margin: 0;
+}
+img{
+	/*background-color: rgb(34, 167, 240) !important;*/
+}
+.card{
+/*background-color: rgb(34, 167, 240);*/
+border-color: rgba(232, 236, 241, 1) !important;
+	border: 1px solid rgb(244, 246, 246);
+	border-radius: 5px;
+	font-family: 'Poppins', sans-serif;
+ box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.card-body{
+	background: ghostwhite !important;
+	border: 1px solid rgb(244, 246, 246);
+	border-radius: 15px;
+}
+
+a{
+	color:whitesmoke;
+	border: none;
+	border-radius: 15px;
+}
+
+
+ i{
+	 font-size:24px;
+	 border-radius:50%;
+	 color:#787878;
+ }
+
+ .btn{
+	 border: none;
+ }
+.fa-facebook-f.fa-linkedin-in.fa-whatsapp.fa-play-circle{
+	margin: 5px;
+	padding: 5px;
+}
+
+.fa-map-marker-alt{
+	font-size:13px;
+}
+.fa-money-bill-wave{
+	font-size:13px;
+}
+
+.fa-mobile-alt{
+	font-size:13px;
+}
+
+body{
+	background-color: rgb(  244, 246, 246);
+}
+
+button{
+	border-radius: 0;
+	border: 0;
+}
+
+
+

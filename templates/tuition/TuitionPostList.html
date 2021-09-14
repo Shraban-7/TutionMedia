@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Lists
+{% endblock %}
+{% block content %}
+    {% load static %}
+<div class="container">
+
+
+    <form action="{% url 'filter' %}" method="post" >
+    {% csrf_token %}
+<div class="row">
+<div class="col-md-5">
+   <div class="input-group mt-3 mb-3 ">
+  <select class="form-select" id="inputGroupSelect02" name="class_i">
+    <option selected>Choose...</option>
+      {% for class in classes %}
+      <option value="{{ class }}">{{ class }}</option>
+      {% endfor %}
+  </select>
+  <label class="input-group-text" for="inputGroupSelect02">Class</label>
+</div>
+</div>
+<div class="col-md-5">
+   <div class="input-group mb-3 mt-3">
+  <select class="form-select" id="inputGroupSelect02" name="country_i">
+    <option selected>Choose...</option>
+      {% for district in countrys %}
+      <option value="{{ district }}">{{ district }}</option>
+      {% endfor %}
+  </select>
+  <label class="input-group-text" for="inputGroupSelect02">District</label>
+</div>
+</div>
+<div class="container col-md-2">
+    <button type="submit" class="btn btn-primary mb-3 mt-3 w-100">Filter</button>
+    </div>
+</div>
+    </form>
+
+</div>
+<div class="container infinite-container">
+{% for object in object_list %}
+     <div class="col-md-12 infinite-item">
+<div class="card">
+  <div class="card-header">
+      <div class="row">
+          <div class="col-md-6">
+              #id:8752{{ object.sno }}
+          </div>
+          <div class="col-md-6">
+              <small class="ml-auto">{{ object.created_at }}</small>
+          </div>
+      </div>
+
+  </div>
+  <div class="card-body">
+<div class="row">
+<div class="col-md-4">
+    <p class="card-text text-muted"><i class="fas fa-puzzle-piece"></i> {{ object.preference_tuition_style }}</p>
+    <p class="card-text text-muted"><i class="fas fa-money-bill-wave"></i> {{ object.salary }}</p>
+</div>
+    <div class="col-md-4 ">
+   <p class="card-text text-muted"><i class="fas fa-university"></i> {{ object.school_college }}</p>
+    <p class="card-text text-muted"><i class="fas fa-book"></i> {{ object.subjects }}</p>
+</div>
+    <div class="col-md-4 ">
+   <p class="card-text text-muted"><i class="fas fa-map-marker-alt"></i> {{ object.city}} ,{{ object.country }}</p>
+    </div>
+</div>
+
+<div>
+  {% if user.is_authenticated %}
+   {% if user.userprofile.is_premium %}
+    <a href="{% url 'detail' object.pk %}" class="btn btn-primary mt-2">Detail</a>
+      {% else %}
+          <p class="mt-3">you are not premium so you can't show tuition details</p>
+      {% endif %}
+      {% else %}
+      <p class="mt-3">Please log in first show details</p>
+  {% endif %}
+
+  </div>
+</div>
+
+</div>
+     <br>
+     <br>
+     </div>
+
+{% endfor %}
+</div>
+    <div class="d-flex d-none position-fixed" style="top:35vh;left:46vw">
+                <button class="btn btn-primary loading">
+                    <span class="spinner-border spinner-border-sm"></span>
+                    Please wait...
+                </button>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    {% if page_obj.has_next %}
+                    <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}">next</a>
+                    {% endif %}
+
+                </div>
+            </div>
+
+
+
+{% endblock %}
+{% block script %}
+    <link rel="stylesheet" href="{% static 'css/tuitions.css' %}">
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static "/js/jquery.waypoints.min.js" %}"></script>
+    <script src="{% static '/js/infinite.min.js' %}"></script>
+    <script src="{% static 'js/paginator.js' %}"></script>
+    {% endblock %}

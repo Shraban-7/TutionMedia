@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Contact
+{% endblock %}
+{% block content %}
+
+<div class="row m-5 h-100">
+<div class="col-md-6">
+    <h5>Our Locations below</h5>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57973.6868862306!2d90.36147627779312!3d24.748999830087115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37564f1007ad9b59%3A0x79a59cb060e32d6c!2z4Kau4Kef4Kau4Kao4Ka44Ka_4KaC4Ka5!5e0!3m2!1sbn!2sbd!4v1612771337655!5m2!1sbn!2sbd" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+</div>
+
+<div class="col p-0 bg-custom d-flex justify-content-center align-items-center flex-column w-100">
+    <h4>Contact Us</h4>
+   <p class="text-muted"><i class="far fa-envelope"></i> shakuatshraban@gmail.com</p>
+    <p class="text-muted"><i class="fas fa-phone"></i> 01632558049</p>
+    <h4>Feedback Here</h4>
+    <form method="post" action="" class="w-75">
+        {% csrf_token %}
+    <div class="form-floating mb-3">
+  <input type="email" class="form-control" id="floatingInput" name="author_email" placeholder="name@example.com">
+  <label for="floatingInput">Email address</label>
+</div>
+    <div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a feedback here" name="feed_details" id="floatingTextarea"></textarea>
+  <label for="floatingTextarea">Feedback</label>
+</div>
+        <button type="submit" class="btn btn-primary w-100 mt-3">Submit</button>
+        </form>
+</div>
+</div>
+{% endblock %}
+{% block script %}
+
+{% endblock %}

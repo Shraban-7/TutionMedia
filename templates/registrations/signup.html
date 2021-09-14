@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Sign Up
+{% endblock %}
+{% block content %}
+    <div class="row m-0 h-100">
+{#    <h5>Teacher Sign up</h5>#}
+        <div class="col p-0 text-center d-flex justify-content-center align-items-center display-none">
+
+            <img src="{% static 'images/learn.png' %}" class="w-100" alt="">
+        </div>
+        <div class="col p-0 bg-custom d-flex justify-content-center align-items-center flex-column w-100">
+            <form class="w-75" action="" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+{#                    <label for="exampleFormControlInput1" class="form-label">Username</label>#}
+{#                    <input type="text" class="form-control" id="exampleFormControlInput1" name="username" placeholder="username"#}
+{#                        required>#}
+                    {{ form.username|as_crispy_field }}
+                </div>
+                <div class="mb-3">
+{#                    <label for="exampleFormControlInput1" class="form-label">Email</label>#}
+{#                    <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="example@example.com"#}
+{#                        required>#}
+                    {{ form.email|as_crispy_field }}
+                </div>
+                <div class="mb-3">
+{#                    <label for="exampleFormControlInput1" class="form-label">First Name</label>#}
+{#                    <input type="text" class="form-control" id="exampleFormControlInput1" name="first_name" placeholder="Enter your first name"#}
+{#                        required>#}
+                    {{ form.first_name|as_crispy_field }}
+                </div>
+                <div class="mb-3">
+{#                    <label for="exampleFormControlInput1" class="form-label">Last Name</label>#}
+{#                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your last name"#}
+{#                        required>#}
+                    {{ form.last_name|as_crispy_field }}
+                </div>
+                <div class="mb-3">
+{#                    <label for="exampleFormControlInput1" class="form-label">Password</label>#}
+{#                    <input type="password" class="form-control" id="exampleFormControlInput1" name="password1" placeholder="password"#}
+{#                        required>#}
+                    {{ form.password1|as_crispy_field }}
+                </div>
+                <div class="mb-3">
+{#                    <label for="exampleFormControlInput2" class="form-label">Confirm Password</label>#}
+{#                    <input type="password" class="form-control" id="exampleFormControlInput2" name="password2" placeholder="confirm password"#}
+{#                        required>#}
+                    {{ form.password2|as_crispy_field }}
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                       <small> if you have an account login ,<a href="{% url 'login' %}">here</a></small>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-custom btn-lg btn-block w-100 mt-3 mb-3">Signup Now</button>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block script %}
+{#<link rel="stylesheet" href="../../static/css/index.css">#}
+{#<link rel="stylesheet" href="{% static 'css/index.css' %}">#}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock %}

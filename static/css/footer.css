@@ -1,0 +1,20 @@
+#footer {
+  /*position: fixed;*/
+    padding-top:15px;
+    padding-bottom: 15px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #303030;
+  color: white;
+  text-align: center;
+}
+
+.fab{
+    font-size:24px;
+    margin:5px;
+    font-weight: bold;
+}
+.copyright{
+    font-size:12px;
+}

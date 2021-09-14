@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Tuition Post Create
+{% endblock %}
+
+{% block content %}
+    <div class="container col-md-6 mb-5">
+    <img src="{% static 'images/bkash-logo.png' %}" class="text-center mt-5" style="height:25%;width:25%;" alt="bkash-logo">
+<form method="post" class="mt-5" enctype="multipart/form-data">
+{% csrf_token %}
+{#{{ form.as_p }}#}
+
+    <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Transaction ID</label>
+  <input type="text" class="form-control" id="exampleFormControlInput1" name="Tx_id" placeholder="transaction id">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Your Account Username</label>
+  <input type="text" class="form-control" id="exampleFormControlInput1" name="member_username" placeholder="Enter your account username">
+</div>
+    <div class="mb-3">
+  <label for="exampleFormControlInput11" class="form-label">Your Email</label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" name="member_email" placeholder="Enter your account register email">
+</div>
+<button type="submit" class="btn btn-primary w-100">Submit</button>
+</form>
+
+    <ol class="list-group list-group-flush my-3" type="1">
+  <li class="list-group-item">Go to your bKash Mobile Menu by dialing *247#</li>
+  <li class="list-group-item">Choose “Send Money”</li>
+  <li class="list-group-item">Enter the Merchant bKash Wallet No 017xx-xxx-xxx</li>
+  <li class="list-group-item">Enter the Amount 500.00</li>
+  <li class="list-group-item">Enter a Reference "your username and your email"</li>
+  <li class="list-group-item">Now enter your bKash Menu PIN to confirm</li>
+  <li class="list-group-item">Done! You will receive a confirmation message from bKash</li>
+  <li class="list-group-item">Put the Transaction ID in the upper box and press "Submit"</li>
+  <li class="list-group-item">After confirming 24 hours your Transaction ID , username and email your id check and activate</li>
+</ol>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+.asteriskField{
+    display: none;
+}
+*{
+    font-family:'Poppins', sans-serif;
+}
+
+
+.my-bg{
+    background: rgb(232, 236, 241);
+    min-height: 100vh;
+}
+
+body{
+    background-color:#e2e8f0;
+    text-transform: capitalize;
+}
+
+
+/*{*/
+/*    background: #000000;*/
+/*}*/

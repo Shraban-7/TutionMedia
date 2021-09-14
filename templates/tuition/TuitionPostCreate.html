@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Create
+{% endblock %}
+{% block content %}
+<form method="post" id="personForm" data-cities-url="{% url 'ajax_load_cities' %}" novalidate>
+{% csrf_token %}
+    <div class="container">
+     <div class="row mt-2">
+      <div class="form-group col-md-6 mb-0">
+        {{ form.fullname|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-6 mb-0">
+        {{ form.country|as_crispy_field }}
+      </div>
+    </div>
+        <div class="row mt-2">
+      <div class="form-group col-md-6 mb-0">
+        {{ form.city|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-6 mb-0">
+        {{ form.class_other|as_crispy_field }}
+      </div>
+    </div>
+ <div class="row mt-2">
+      <div class="form-group col-md-6 mb-0">
+        {{ form.medium|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-6 mb-0">
+        {{ form.subjects|as_crispy_field }}
+      </div>
+    </div>
+ <div class="row mt-2">
+      <div class="form-group col-md-6 mb-0">
+        {{ form.school_college|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-6 mb-0">
+        {{ form.student_quantity|as_crispy_field }}
+      </div>
+    </div>
+ <div class="row mt-2">
+      <div class="form-group col-md-6 mb-0">
+        {{ form.student_gender|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-6 mb-0">
+        {{ form.day_per_week|as_crispy_field }}
+      </div>
+    </div>
+        <div class="row mt-2">
+      <div class="form-group col-md-6 mb-0">
+        {{ form.salary|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-6 mb-0">
+        {{ form.desire_tutor_gender|as_crispy_field }}
+      </div>
+    </div>
+        <div class="row mt-2">
+      <div class="form-group col-md-6 mb-0">
+        {{ form.preference_tuition_style|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-6 mb-0">
+        {{ form.address|as_crispy_field }}
+      </div>
+    </div>
+        <div class="row mt-2">
+      <div class="form-group col-md-6 mb-0">
+        {{ form.mobile|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-6 mb-0">
+        {{ form.email|as_crispy_field }}
+      </div>
+    </div>
+        <div class="container-fluid mx-auto text-center mt-2">
+<button type="submit" class="btn btn-primary w-100 btn-block">Submit</button>
+            </div>
+</div>
+</form>
+{% endblock %}
+{% block script %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/areadropdown.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}

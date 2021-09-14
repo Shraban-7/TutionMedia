@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Search Tutor
+{% endblock %}
+{% block content %}
+<div class="container">
+
+    <form action="{% url 'search' %}" method="post" >
+    {% csrf_token %}
+    <div class="row">
+<div class="col-md-5">
+   <div class="input-group mb-3 mt-3">
+  <select class="form-select" id="inputGroupSelect02" name="prefer_class">
+    <option selected>Choose...</option>
+      {% for class in prefer_class %}
+      <option value="{{ class }}">{{ class }}</option>
+      {% endfor %}
+  </select>
+  <label class="input-group-text" for="inputGroupSelect02">Class</label>
+</div>
+</div>
+    <div class="col-md-5">
+   <div class="input-group mb-3 mt-3">
+  <select class="form-select" id="inputGroupSelect02" name="district_area">
+    <option selected>Choose...</option>
+      {% for district in district_area %}
+      <option value="{{ district }}">{{ district }}</option>
+      {% endfor %}
+  </select>
+  <label class="input-group-text" for="inputGroupSelect02">District</label>
+</div>
+    </div>
+    <div class="col-md-2">
+    <button type="submit" class="btn btn-primary mb-3 mt-3 px-5 w-100">Filter</button>
+        </div>
+
+    </div>
+    </form>
+
+</div>
+<div class="container ">
+<div class="row infinite-container">
+   {% for profile in user_profile %}
+
+          {% if profile.is_premium %}
+       <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+
+ <div class="card mx-auto my-3 shadow" style="width: 16rem; height: 24rem;">
+
+  <img src="{{profile.user.userprofile.image.url}}" class="card-img-top mx-auto rounded-circle img-thumbnail" style="height:8rem;
+width:8rem;" alt="user profile picture">
+
+  <div class="card-body" style="height:14rem;">
+    <p class="card-title text-center"><a href="{% url 'ownerprofile' %}"><small class="text-muted">{{ profile.user.first_name }} {{ profile.user.last_name }}</small></a></p>
+    <p class="text-center"><small class="text-muted"><i class="fas fa-money-bill-wave"></i>  {{ profile.expected_salary }} tk</small></p>
+      {% if not profile.district_area %}
+
+          {% else %}
+         <p class="text-center"> <small class="text-muted"><i class="fas fa-map-marker-alt"></i>  {{ profile.district_area }}</small></p>
+      {% endif %}
+
+      <p class="card-title text-center"><small class="text-muted">Contacts</small></p>
+  {% if profile.your_phone_no %}
+  <p class="text-center"><small class="text-muted"><i class="fas fa-mobile-alt"></i> {{ profile.your_phone_no }}</small></p>
+  {% endif %}
+    <p class="text-center"><small class="text-muted">{{ profile.user.email }}</small></p>
+  <p class="text-center">
+  {% if profile.fb_id %}
+  <a href="{{ profile.fb_id }}" id="fb" class="m-2"><i class="fab fa-facebook-f" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook"></i></a>
+      {% else %}
+      <i class="fab fa-facebook-f m-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook"></i>
+  {% endif %}
+  {% if profile.linkedin %}
+<a href="{{ profile.linkedin }}" target="_blank" class="m-2 " ><i class="fab fa-linkedin-in" data-bs-toggle="tooltip" data-bs-placement="top" title="LinkedIn"></i></a>
+{% else %}
+    <i class="fab fa-linkedin-in m-2"data-bs-toggle="tooltip" data-bs-placement="top" title="LinkedIn"></i>
+{% endif %}
+  {% if profile.whatsapp %}
+<a href="{{ profile.whatsapp }}" target="_blank" class="m-2 " ><i class="fab fa-whatsapp" data-bs-toggle="tooltip" data-bs-placement="top" title="Whatsapp"></i></a>
+{% else %}
+    <i class="fab fa-whatsapp m-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Whatsapp"></i>
+{% endif %}
+{% if profile.demo_class %}
+<a href="{{ profile.demo_class }}" target="_blank" class="m-2" ><i class="far fa-play-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Watch demo class"></i></a>
+{% else %}
+
+    <i class="far fa-play-circle m-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Watch demo class"></i>
+{% endif %}
+
+
+  </div>
+</div>
+
+
+</div>
+       {% endif %}
+   {% endfor %}
+      <div class="d-flex d-none position-fixed" style="top:35vh;left:46vw">
+                <button class="btn btn-primary loading">
+                    <span class="spinner-border spinner-border-sm"></span>
+                    Please wait...
+                </button>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    {% if page_obj.has_next %}
+                    <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}">next</a>
+                    {% endif %}
+
+                </div>
+            </div>
+      </div>
+</div>
+<style>
+.card-body{
+    margin-top:5px !important;
+    line-height:12px !important;
+}
+</style>
+{% endblock %}
+{% block script %}
+    <link rel="stylesheet" href="{% static 'css/usercard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/modal-video.min.css' %}">
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+
+    <script src="{% static "/js/jquery.waypoints.min.js" %}"></script>
+    <script src="{% static '/js/infinite.min.js' %}"></script>
+    <script>
+        const infinite = new Waypoint.Infinite({
+            element: $('.infinite-container')[0],
+             offset: 'bottom-in-view',
+
+            onBeforePageLoad: function () {
+                $('.loading').show();
+            },
+            onAfterPageLoad: function () {
+                $('.loading').hide();
+            }
+             });
+
+
+
+
+
+
+
+    </script>
+    {% endblock %}
